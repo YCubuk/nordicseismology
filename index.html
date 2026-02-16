@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>57th Nordic Seismology Seminar · 9–11 June 2026 · Reykjavík</title>
+
   <style>
     :root{
       --bg:#f5f7fb;
@@ -15,6 +16,7 @@
       --border:#e6eaf2;
       --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -23,61 +25,90 @@
       color: var(--text);
       line-height: 1.6;
     }
+
     a{color: var(--accent); text-decoration: none}
     a:hover{text-decoration: underline}
     .wrap{max-width: 980px; margin: 0 auto; padding: 24px}
+
+    /* HERO */
     .hero{
-      background: linear-gradient(135deg, var(--accent), #111827);
-      color:#fff;
-      border-radius: 18px;
-      padding: 36px 28px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
       position: relative;
-    }
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset:-120px -120px auto auto;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(255,255,255,0.18), rgba(255,255,255,0));
-      transform: rotate(20deg);
-    }
-    .hero h1{margin:0 0 6px 0; font-size: 2rem; letter-spacing: .2px}
-    .hero .sub{margin: 0 0 18px 0; opacity: .92}
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px}
-    .pill{
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: .92rem;
-      backdrop-filter: blur(6px);
+      width: 100%;
+      height: 280px;            /* foto yüksekliği */
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
     }
 
+    .hero img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom; /* ✅ bottom yazımı düzeltildi */
+      display:block;
+    }
+
+    .hero-text{
+      position: absolute;
+      top: 30%;
+      left: 5%;
+      color: white;
+      text-align: left;
+      max-width: 700px;
+      background: transparent;
+      padding: 0;
+      transform: none;
+    }
+
+    .hero-text h1{
+      margin: 0;
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      text-shadow:
+        0 3px 12px rgba(0,0,0,0.8),
+        0 1px 3px rgba(0,0,0,0.9);
+    }
+
+    .hero-text p{
+      margin-top: 12px;
+      font-size: 26px;
+      font-weight: 600;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.9);
+    }
+
+    /* LAYOUT */
     .grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 18px;
       margin-top: 18px;
     }
+
     @media (max-width: 860px){
       .grid{grid-template-columns: 1fr}
-      .hero h1{font-size: 1.7rem}
+      .hero{height: 220px;}
+      .hero-text h1{font-size: 30px; white-space: normal;}
+      .hero-text p{font-size: 20px;}
     }
 
+    /* CARDS */
     .card{
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px 22px;
-      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.05);
+      box-shadow:  0 12px 25px rgba(0,0,0,0.25),
+  0 30px 80px rgba(0,0,0,0.18);
     }
+
     .card h2{
       margin: 0 0 10px 0;
       font-size: 1.25rem;
       color: #0b1220;
     }
+
     .lead{font-size:1.03rem; color: var(--text); margin: 0 0 12px 0}
     .muted{color: var(--muted)}
     .divider{height:1px; background: var(--border); margin: 16px 0}
@@ -124,15 +155,6 @@
 
     ul{margin: 10px 0 0 18px}
     li{margin: 6px 0}
-    .taglist{display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px}
-    .tag{
-      border: 1px solid var(--border);
-      background:#ffffff;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: .92rem;
-      color: var(--muted);
-    }
 
     .footer{
       text-align:center;
@@ -143,102 +165,125 @@
     .small{font-size: .92rem}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
 
-/* HERO IMAGE */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  overflow: hidden;
+/* ACCOMMODATION BOX */
+.accommodation-box{
+  display:flex;
+  gap:24px;
+  align-items:center;
 }
 
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.accommodation-text{
+  flex:5;
 }
 
-/* TEXT OVER IMAGE */
-.hero-text {
-  position: absolute;
-  top: 25%;          /* yukarıdan 1/4 */
-  left: 5%;          /* soldan boşluk */
-  transform: none;   /* ortalamayı kapatıyoruz */
-
-  color: white;
-  text-align: left;
-
-  /* okunurluk için */
-  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
-
-  /* hafif arka plan (isteğe bağlı ama çok güzel durur) */
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(3px);
-
-  padding: 20px 30px;
-  border-radius: 10px;
-  max-width: 500px;
+.accommodation-img{
+  flex:0.7;
 }
 
-
-.hero-text h1 {
-  margin: 0;
-  font-size: 42px;
+.accommodation-img img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
 }
 
-.hero-text p {
-  margin-top: 10px;
-  font-size: 20px;
+/* mobilde alt alta gelsin */
+@media (max-width:860px){
+  .accommodation-box{
+    flex-direction:column;
+  }
 }
 
+/* MAIN CONTENT BACKGROUND */
+.main-section{
+  background:#F5EFE6;
+    /* güçlü dış gölge */
+  box-shadow:   0 12px 25px rgba(0,0,0,0.25),
+  0 30px 80px rgba(0,0,0,0.18);
 
-   
+  /* biraz daha kart hissi */
+  border-radius:16px;
+
+}
+
+/* RIGHT SIDE PANEL (Dates → Contact) */
+.side-section{
+  background:#071952;
+
+  /* dış gölge */
+   box-shadow:   0 12px 25px rgba(0,0,0,0.25),
+  0 30px 80px rgba(0,0,0,0.18);
+
+  /* kart hissi */
+  border-radius:16px;
+}
+
+/* Welcome kartı üst boşluğu azalt */
+.welcome-section{
+  padding-top:2px;   /* 22px → 6px */
+}
+
+/* NORDIC DAS Workshop kutusu arka plan rengi */
+.event-section{
+  background:#DBDFEA;
+}
+
   </style>
-</head>
 
+
+
+</head>
+    <!-- ✅ BAŞLIK -->
 <body>
   <div class="wrap">
 
-    <!-- HEADER IMAGE WITH TITLE -->
-<div class="hero">
-  <img src="images/ilk.jpg" alt="Nordic Seismology">
-
-  <div class="hero-text">
-    <h1>57th Nordic Seismology Seminar</h1>
-    <p>9–11 June 2026 · Reykjavík</p>
-  </div>
-</div>
-
+    <!-- HERO -->
+    <div class="hero">
+      <img src="images/ilk.JPG" alt="Nordic Seismology">
+      <div class="hero-text">
+        <h1>57th Nordic Seismology Seminar</h1>
+        <p>9–11 June 2026 · Reykjavík</p>
+      </div>
+    </div>
 
 
 
+    <!-- ✅ WELCOME: ayrı kutu (grid dışında) -->
+
+    <div class="card welcome-section" style="margin-top:16px;">
+      <h1>Welcome</h1>
+      <p class="lead">
+        Welcome to the joint <strong>57th Nordic Seismology Seminar</strong> and
+        <strong>NordForsk Nordic DAS workshop</strong>, hosted by the
+        <strong>Icelandic Meteorological Office</strong>!
+      </p>
+      <p class="muted">
+        The events will initially start with the Nordic DAS project workshop on <strong>June 8th</strong>.
+        The <strong>57th Nordic Seismology Seminar</strong> will be held from <strong>9–11 June 2026</strong>.
+      </p>
+     
+        <strong>We look forward to seeing you in Reykjavík!</strong>
+      
+    </div>
+
+    <!-- ⭐MAIN  -->
     <div class="grid">
-      <!-- Main content -->
-      <main class="card">
-        <h2>Welcome</h2>
-        <p class="lead">
-          Welcome to the joint <strong>57th Nordic Seismology Seminar</strong> and <strong>NordForsk Nordic DAS workshop</strong>,
-          hosted by the <strong>Icelandic Meteorological Office</strong>!
-        </p>
-        <p class="muted">
-          The events will initially start with the Nordic DAS project workshop on <strong>June 8th</strong>.
-          The <strong>57th Nordic Seismology Seminar</strong> will be held from <strong>9–11 June 2026</strong> at
-          <strong>Underheimar</strong>, Bústaðavegur 7, 105, Reykjavík.
-        </p>
-        <div class="callout">
-          <strong>We look forward to seeing you in Reykjavík!</strong>
-        </div>
-
-        <div class="divider"></div>
-
+      <main class="card main-section">
         <h2>Deadlines</h2>
         <p class="muted">
           <strong>Registration and Abstract submission:</strong> <strong>April 10th, 2026</strong>.
           Please use the link below to register for the seminar, all social events, and to submit your abstract.
         </p>
 
-        <div class="btnrow">
-          <a class="btn primary" href="#" target="_blank" rel="noopener">Registration & Abstract Submission (Link will be provided)</a>
-        </div>
+<div class="btnrow">
+  <a class="btn primary"
+     href="https://forms.office.com/Pages/ResponsePage.aspx?id=Vu9mQVo0VEWzyTu3BoI654pd71gFv2NMqpbFLAAvdqhUMTNROTdKVUdXSVU3UkJRNTlKWlZMVTVJTy4u"
+     target="_blank"
+     rel="noopener">
+
+    Registration & Abstract Submission
+
+  </a>
+</div>
 
         <p class="small muted" style="margin-top:10px;">
           If the link does not work for you, please email
@@ -258,16 +303,6 @@
 
         <div class="divider"></div>
 
-        <h2>Topics for Abstract Submission</h2>
-        <div class="taglist">
-          <span class="tag">Seismic monitoring and analysis</span>
-          <span class="tag">Fiber optic seismology</span>
-          <span class="tag">Seismicity, seismic hazard and risk</span>
-          <span class="tag">Applied and computational seismology</span>
-        </div>
-
-        <div class="divider"></div>
-
         <h2>Program</h2>
         <p class="muted">To be announced after <strong>April 10th</strong>.</p>
 
@@ -276,63 +311,124 @@
         <h2>Field Excursion · June 11th</h2>
         <p class="muted">To be announced soon.</p>
 
-        <div class="divider"></div>
+      
 
+      </main>
+
+
+ <!-- ⭐ASIDE grid -->
+
+      <aside class="card side-section">
+       
+
+        <div class="kvs">
+          <div class="kv">
+            <div class="k">Dates</div>
+            <div class="v">
+              Nordic DAS workshop: <strong>June 8th</strong><br/>
+              Seminar: <strong>9–11 June 2026</strong>
+            </div>
+          </div>
+
+
+
+          <div class="kv">
+            <div class="k">Registration deadline</div>
+            <div class="v"><strong>April 10th, 2026</strong></div>
+          </div>
+
+<div class="kv">
+  <div class="k">Venue</div>
+
+  <div class="v">
+    <strong>Underheimar</strong><br>
+    <span class="mono">Bústaðavegur 7, 105 Reykjavík</span>
+  </div>
+
+  <!-- Google Maps görüntü -->
+  <div style="margin-top:12px;">
+    <iframe
+      src="https://www.google.com/maps?q=Bústaðavegur+7+Reykjavik&output=embed"
+      width="100%"
+      height="260"
+      style="border:0; border-radius:10px;"
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- ⭐Haritayı Google Maps'te aç -->
+  <div style="margin-top:8px;">
+    <a href="https://www.google.com/maps?q=Bústaðavegur+7+Reykjavik"
+       target="_blank"
+       style="font-weight:600;">
+       Open in Google Maps →
+    </a>
+  </div>
+</div>
+
+
+    <div class="kv">
+            <div class="k">Contact</div>
+	      <div class="v"><strong>For any questions, please contact:</strong></div>
+              <a href="mailto:kristin.jonsdottir@vedur.is">kristin.jonsdottir@vedur.is</a>
+       	      <a href="mailto:yesim@vedur.is">yesim@vedur.is</a>
+            
+      </aside>
+    </div>
+
+<!-- ⭐ EVENT ayrı kutu -->
+<div class="card event-section" style="margin-top:18px;">
+
+  <div class="accommodation-box">
+
+
+    <!-- SAĞ: METİN -->
+    <div class="accommodation-text">
         <h2>NORDIC DAS Workshop</h2>
         <p class="muted">
           We organize a workshop on <strong>Distributed Acoustic Sensing (DAS)</strong> adjacent to the 57th Nordic Seismology Seminar
           and supported by the Nordforsk <strong>NORDIC DAS</strong> project.
         </p>
-        <div class="btnrow">
-          <a class="btn" href="#" target="_blank" rel="noopener">Workshop Registration (Link will be provided)</a>
-        </div>
 
-        <div class="divider"></div>
 
-        <h2>Accommodation</h2>
-        <p class="muted">
-          Participants will have to provide for their own accommodation.
-          Please see the list of hotels with discount offers.
-        </p>
-      </main>
-
-      <!-- Side panel -->
-      <aside class="card">
-        <h2>At a glance</h2>
-        <div class="kvs">
-          <div class="kv">
-            <div class="k">Dates</div>
-            <div class="v">Nordic DAS workshop: <strong>June 8th</strong><br/>Seminar: <strong>9–11 June 2026</strong></div>
-          </div>
-          <div class="kv">
-            <div class="k">Venue</div>
-            <div class="v">Underheimar<br/><span class="mono">Bústaðavegur 7, 105 Reykjavík</span></div>
-          </div>
-          <div class="kv">
-            <div class="k">Registration deadline</div>
-            <div class="v"><strong>April 10th, 2026</strong></div>
-          </div>
-          <div class="kv">
-            <div class="k">Program</div>
-            <div class="v">To be announced after April 10th</div>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <h2>Contact</h2>
-        <p class="muted" style="margin:0;">
-          For any questions, please contact:
-        </p>
-        <ul>
-          <li><a href="mailto:kristin.jonsdottir@vedur.is">kristin.jonsdottir@vedur.is</a></li>
-          <li><a href="mailto:yesim@vedur.is">yesim@vedur.is</a></li>
-        </ul>
-
-        <div class="divider"></div>
-
-      </aside>
     </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- ⭐ ACCOMMODATION ayrı kutu -->
+<div class="card" style="margin-top:18px;">
+
+  <div class="accommodation-box">
+
+    <!-- SOL: FOTOĞRAF -->
+    <div class="accommodation-img">
+      <img src="images/reyk.jpg" alt="Reykjavík">
+    </div>
+
+    <!-- SAĞ: METİN -->
+    <div class="accommodation-text">
+      <h2>Accommodation</h2>
+
+      <p class="muted">
+        Participants will have to provide for their own accommodation.
+        Please see the list of hotels with discount offers.
+      </p>
+    </div>
+
+
+
+  </div>
+
+</div>
+
 
     <div class="footer">
       <div><strong>Nordic Seismology Seminar 2026</strong></div>
@@ -341,10 +437,12 @@
 
   </div>
 
+
+
   <script>
-    // Safe tiny helper: show last updated date in a friendly format 
     const d = new Date(document.lastModified);
-    document.getElementById("lastUpdated").textContent = d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+    document.getElementById("lastUpdated").textContent =
+      d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
   </script>
 </body>
 </html>
