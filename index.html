@@ -9,8 +9,8 @@
     :root{
       --bg:#f5f7fb;
       --card:#ffffff;
-      --text:#1d2433;
-      --muted:#586174;
+      --text:#00000;
+      --muted:#00000;
       --accent:#1f3a8a;
       --accent2:#0f766e;
       --border:#e6eaf2;
@@ -167,6 +167,7 @@
 
 /* ACCOMMODATION BOX */
 .accommodation-box{
+  
   display:flex;
   gap:24px;
   align-items:center;
@@ -195,7 +196,8 @@
 
 /* MAIN CONTENT BACKGROUND */
 .main-section{
-  background:#F5EFE6;
+  background:#fffafa;
+  font-size: 20px;
     /* güçlü dış gölge */
   box-shadow:   0 12px 25px rgba(0,0,0,0.25),
   0 30px 80px rgba(0,0,0,0.18);
@@ -206,25 +208,40 @@
 }
 
 /* RIGHT SIDE PANEL (Dates → Contact) */
-.side-section{
-  background:#071952;
+.side-section {
+  background: #1A2E44;
+  
+  /* 1. Add Padding: This creates space between the text and the edges */
+  padding: 12px; 
 
-  /* dış gölge */
-   box-shadow:   0 12px 25px rgba(0,0,0,0.25),
-  0 30px 80px rgba(0,0,0,0.18);
+  /* 2. Increase Box Size: Adjust width or min-height as needed */
+  width: 100%;       /* Ensures it fills its container */
+  min-height: 400px; /* Forces the box to be taller */
 
-  /* kart hissi */
-  border-radius:16px;
+  /* existing shadow & border */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25), 
+              0 30px 80px rgba(0,0,0,0.18);
+  border-radius: 16px;
+
 }
 
-/* Welcome kartı üst boşluğu azalt */
-.welcome-section{
-  padding-top:2px;   /* 22px → 6px */
+/* Bu versiyon arka plan rengini zorla uygular */
+.welcome-section {
+  padding-top: 2px !important;
+  background-color: #fffafa !important; /* !important tarayıcıya "bunu mutlaka yap" der */
+  color: #000000;
+}
+
+/* Metin boyutunu da buraya ekleyelim */
+.welcome-section p {
+  font-size: 20px;
+  color: #000000;
 }
 
 /* NORDIC DAS Workshop kutusu arka plan rengi */
 .event-section{
-  background:#DBDFEA;
+  background:#e49b0f;
+  padding-top: 0px;
 }
 
   </style>
@@ -240,11 +257,10 @@
     <div class="hero">
       <img src="images/ilk.JPG" alt="Nordic Seismology">
       <div class="hero-text">
-        <h1>57th Nordic Seismology Seminar</h1>
-        <p>9–11 June 2026 · Reykjavík</p>
+      <h1 style="font-size: 50px; margin: 0;">57<sup>th</sup> Nordic Seismology Seminar</h1>
+      <p style="font-size: 30px;">9–11 June 2026 · Reykjavík</p>        
       </div>
     </div>
-
 
 
     <!-- ✅ WELCOME: ayrı kutu (grid dışında) -->
@@ -252,26 +268,27 @@
     <div class="card welcome-section" style="margin-top:16px;">
       <h1>Welcome</h1>
       <p class="lead">
-        Welcome to the joint <strong>57th Nordic Seismology Seminar</strong> and
-        <strong>NordForsk Nordic DAS workshop</strong>, hosted by the
-        <strong>Icelandic Meteorological Office</strong>!
+        Welcome to the joint <strong>57<sup>th</sup>Nordic Seismology Seminar</strong> and
+        <strong>NordForsk Nordic DAS workshop</strong>, hosted at the
+        <strong>Icelandic Meteorological Office!</strong>
       </p>
       <p class="muted">
-        The events will initially start with the Nordic DAS project workshop on <strong>June 8th</strong>.
-        The <strong>57th Nordic Seismology Seminar</strong> will be held from <strong>9–11 June 2026</strong>.
-      </p>
+        The events begin with the Nordic DAS workshop on <strong>8 June,</strong>
+        with the <strong>57<sup>th</sup> Nordic Seismology Seminar (NSS)</strong> taking place from <strong>9 - 11 June 2026.</strong>
+      <br/><br/> <strong>We look forward to seeing you all in Reykjavík!</strong>
+        
+     </p>
      
-        <strong>We look forward to seeing you in Reykjavík!</strong>
       
     </div>
 
     <!-- ⭐MAIN  -->
     <div class="grid">
       <main class="card main-section">
-        <h2>Deadlines</h2>
+        <h1>Registration</h1>
         <p class="muted">
-          <strong>Registration and Abstract submission:</strong> <strong>April 10th, 2026</strong>.
-          Please use the link below to register for the seminar, all social events, and to submit your abstract.
+          <strong style="color: red;">Registration and abstract submission deadline is 10 April 2026.</strong>
+          Please use the link below to register for the seminar and social events, as well as to submit your abstract.
         </p>
 
 <div class="btnrow">
@@ -286,30 +303,29 @@
 </div>
 
         <p class="small muted" style="margin-top:10px;">
-          If the link does not work for you, please email
-          <a href="mailto:yesim@vedur.is">yesim@vedur.is</a>.
+          Having trouble with the link? Please contact
+          <a href="mailto:yesim@vedur.is">yesim@vedur.is</a> for assistance.
         </p>
 
         <div class="divider"></div>
 
         <h2>Registration Fee</h2>
         <p class="muted">
-          The registration cost is <strong>XX.XXX ISK</strong> and includes attendance to the Nordic Seismology Seminar,
-          lunches at IMO, field trip, and a social dinner. The registration fee will be paid on arrival.
+          The registration fee is <strong>XX.XXX ISK</strong>, payable upon arrival. This fee covers the NSS sessions, lunches at IMO, the Reykjanes Peninsula field trip, and the social dinner.
         </p>
-        <p class="muted small">
-          A small registration fee to cover part of the organisation expenses will be collected from the onsite participants.
+       
+        
         </p>
 
         <div class="divider"></div>
 
         <h2>Program</h2>
-        <p class="muted">To be announced after <strong>April 10th</strong>.</p>
+        <p class="muted">The seminar program will be announced on <strong>15 May 2026</strong>.</p>
 
         <div class="divider"></div>
 
         <h2>Field Excursion · June 11th</h2>
-        <p class="muted">To be announced soon.</p>
+        <p class="muted">We will head out to the Reykjanes Peninsula to explore the recent volcanic fields! As the itinerary involves a short hike and time outdoors, we kindly ask participants to dress warmly and wear sturdy shoes for the Icelandic weather. </p>
 
       
 
@@ -323,26 +339,26 @@
 
         <div class="kvs">
           <div class="kv">
-            <div class="k">Dates</div>
+            <div class="k">Important Dates</div>
             <div class="v">
-              Nordic DAS workshop: <strong>June 8th</strong><br/>
-              Seminar: <strong>9–11 June 2026</strong>
+              Nordic DAS Workshop: <strong>8 June 2026 </strong><br/>
+              NSS Seminar: <strong>9–10 June 2026</strong><br/>
+              Field Excursion: <strong>11 June 2026
             </div>
           </div>
 
-
-
           <div class="kv">
             <div class="k">Registration deadline</div>
-            <div class="v"><strong>April 10th, 2026</strong></div>
+            <div class="v">10 April 2026</strong></div>
           </div>
 
 <div class="kv">
   <div class="k">Venue</div>
 
   <div class="v">
-    <strong>Underheimar</strong><br>
-    <span class="mono">Bústaðavegur 7, 105 Reykjavík</span>
+    <strong>Icelandic Met Office</strong><br/>
+    Meeting Room: Underheimar<br/>
+   Bústaðavegur 7, 105 Reykjavík
   </div>
 
   <!-- Google Maps görüntü -->
@@ -370,8 +386,9 @@
     <div class="kv">
             <div class="k">Contact</div>
 	      <div class="v"><strong>For any questions, please contact:</strong></div>
-              <a href="mailto:kristin.jonsdottir@vedur.is">kristin.jonsdottir@vedur.is</a>
-       	      <a href="mailto:yesim@vedur.is">yesim@vedur.is</a>
+              <a href="mailto:kristin.jonsdottir@vedur.is">kristin.jonsdottir@vedur.is</a><br>
+       	      <a href="mailto:yesim@vedur.is">yesim@vedur.is</a><br>
+                   <a href="mailto:rikey@vedur.is">rikey@vedur.is</a>
             
       </aside>
     </div>
@@ -384,10 +401,17 @@
 
     <!-- SAĞ: METİN -->
     <div class="accommodation-text">
-        <h2>NORDIC DAS Workshop</h2>
-        <p class="muted">
-          We organize a workshop on <strong>Distributed Acoustic Sensing (DAS)</strong> adjacent to the 57th Nordic Seismology Seminar
-          and supported by the Nordforsk <strong>NORDIC DAS</strong> project.
+        <h1>NordForsk NORDIC DAS Project Workshop</h1>
+        <p style="color: #000000; font-size: 1.05rem; line-height: 1.6;">
+        We are pleased to host a workshop</strong> on 
+        <strong>8 June 2026</strong> focused on <strong>Distributed Acoustic Sensing (DAS)</strong>. 
+        Supported by the Nordforsk <strong>NORDIC DAS</strong> project, this event explores 
+        <em>"Fiber-optics for Natural Hazard Monitoring"</em> and is held in conjunction with the 
+        57<sup>th</sup> Nordic Seismology Seminar.<br/>
+        <br/> <strong>Attendance Note:</strong> Please note that this workshop is reserved for the NordForsk project partners and invited guests. This session is focused on internal capacity building and discussions, therefore attendance is limited to ensure a productive working environment. We look forward to sharing key takeaways and updates with our wider community as the project evolves.
+
+
+
         </p>
 
 
@@ -418,8 +442,9 @@
       <h2>Accommodation</h2>
 
       <p class="muted">
-        Participants will have to provide for their own accommodation.
-        Please see the list of hotels with discount offers.
+        Participants are responsible for arranging their own accommodation. For special hotel rates, please check the list of discounts provided in our earlier seminar invitation sent in October, 2025.
+
+        
       </p>
     </div>
 
