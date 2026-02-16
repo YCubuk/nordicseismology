@@ -28,7 +28,7 @@
 
     a{color: var(--accent); text-decoration: none}
     a:hover{text-decoration: underline}
-    .wrap{max-width: 980px; margin: 0 auto; padding: 24px}
+    .wrap{max-width: 90%; margin: 0 auto; padding: 24px}
 
     /* HERO */
     .hero{
@@ -81,7 +81,7 @@
     /* LAYOUT */
     .grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.34fr .7fr;
       gap: 18px;
       margin-top: 18px;
     }
@@ -104,7 +104,7 @@
     }
 
     .card h2{
-      margin: 0 0 10px 0;
+      margin: 10px 0 10px 0;
       font-size: 1.25rem;
       color: #0b1220;
     }
@@ -165,39 +165,11 @@
     .small{font-size: .92rem}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
 
-/* ACCOMMODATION BOX */
-.accommodation-box{
-  
-  display:flex;
-  gap:24px;
-  align-items:center;
-}
-
-.accommodation-text{
-  flex:5;
-}
-
-.accommodation-img{
-  flex:0.7;
-}
-
-.accommodation-img img{
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
-
-/* mobilde alt alta gelsin */
-@media (max-width:860px){
-  .accommodation-box{
-    flex-direction:column;
-  }
-}
 
 /* MAIN CONTENT BACKGROUND */
 .main-section{
   background:#fffafa;
-  font-size: 20px;
+  font-size: 22px;
     /* güçlü dış gölge */
   box-shadow:   0 12px 25px rgba(0,0,0,0.25),
   0 30px 80px rgba(0,0,0,0.18);
@@ -210,9 +182,10 @@
 /* RIGHT SIDE PANEL (Dates → Contact) */
 .side-section {
   background: #1A2E44;
-  
+    font-size: 22px;
+
   /* 1. Add Padding: This creates space between the text and the edges */
-  padding: 12px; 
+  padding: 20px; 
 
   /* 2. Increase Box Size: Adjust width or min-height as needed */
   width: 100%;       /* Ensures it fills its container */
@@ -234,15 +207,22 @@
 
 /* Metin boyutunu da buraya ekleyelim */
 .welcome-section p {
-  font-size: 20px;
+  font-size: 22px;
   color: #000000;
 }
 
 /* NORDIC DAS Workshop kutusu arka plan rengi */
 .event-section{
   background:#e49b0f;
+  font-size: 20px;
   padding-top: 0px;
+
 }
+
+.section-title{
+  transform: translateY(20px);
+}
+
 
   </style>
 
@@ -255,18 +235,21 @@
 
     <!-- HERO -->
     <div class="hero">
-      <img src="images/ilk.JPG" alt="Nordic Seismology">
+      <img src="ilk.JPG" alt="Nordic Seismology">
       <div class="hero-text">
-      <h1 style="font-size: 50px; margin: 0;">57<sup>th</sup> Nordic Seismology Seminar</h1>
-      <p style="font-size: 30px;">9–11 June 2026 · Reykjavík</p>        
+      <h1 style="font-size: 54px; margin: 0;">57<sup>th</sup> Nordic Seismology Seminar</h1>
+      <p style="font-size: 30px; text-shadow:
+        0 3px 12px rgba(0,0,0,0.8),
+        0 1px 3px rgba(0,0,0,0.9);
+;">9–11 June 2026 · Reykjavík</p>        
       </div>
     </div>
 
 
     <!-- ✅ WELCOME: ayrı kutu (grid dışında) -->
 
-    <div class="card welcome-section" style="margin-top:16px;">
-      <h1>Welcome</h1>
+    <div class="card welcome-section" style="margin-top:14px;">
+      <h1 style="font-size:40px;">Welcome</h1>
       <p class="lead">
         Welcome to the joint <strong>57<sup>th</sup>Nordic Seismology Seminar</strong> and
         <strong>NordForsk Nordic DAS workshop</strong>, hosted at the
@@ -274,7 +257,7 @@
       </p>
       <p class="muted">
         The events begin with the Nordic DAS workshop on <strong>8 June,</strong>
-        with the <strong>57<sup>th</sup> Nordic Seismology Seminar (NSS)</strong> taking place from <strong>9 - 11 June 2026.</strong>
+        followed by the <strong>57<sup>th</sup> Nordic Seismology Seminar (NSS)</strong> taking place between <strong>9 - 11 June 2026.</strong>
       <br/><br/> <strong>We look forward to seeing you all in Reykjavík!</strong>
         
      </p>
@@ -287,47 +270,65 @@
       <main class="card main-section">
         <h1>Registration</h1>
         <p class="muted">
-          <strong style="color: red;">Registration and abstract submission deadline is 10 April 2026.</strong>
-          Please use the link below to register for the seminar and social events, as well as to submit your abstract.
+          <strong style="color: red; font-size: 26px;">The deadline for registration and abstract submission is 10 April 2026, 4pm.</strong>
+          Please use the link below to register for the seminar and social events, as well as to submit your abstract. Please note that the abstract should be no longer than 400 words.
         </p>
 
-<div class="btnrow">
-  <a class="btn primary"
-     href="https://forms.office.com/Pages/ResponsePage.aspx?id=Vu9mQVo0VEWzyTu3BoI654pd71gFv2NMqpbFLAAvdqhUMTNROTdKVUdXSVU3UkJRNTlKWlZMVTVJTy4u"
-     target="_blank"
-     rel="noopener">
+        <div class="btnrow">
+          <a class="btn primary" href="#" target="_blank" rel="noopener">
+            Registration & Abstract Submission Form 
+          </a>
+        </div>
 
-    Registration & Abstract Submission
 
-  </a>
-</div>
 
-        <p class="small muted" style="margin-top:10px;">
+        <p class="muted" style="margin-top:15px;font-size: 18px;">
           Having trouble with the link? Please contact
           <a href="mailto:yesim@vedur.is">yesim@vedur.is</a> for assistance.
         </p>
 
+
+
         <div class="divider"></div>
 
-        <h2>Registration Fee</h2>
+        <h2 class="section-title" style="color: #1f3a8a;font-size: 26px;">Registration Fee</h2>
         <p class="muted">
-          The registration fee is <strong>XX.XXX ISK</strong>, payable upon arrival. This fee covers the NSS sessions, lunches at IMO, the Reykjanes Peninsula field trip, and the social dinner.
+          The registration fee is <strong>25.000 ISK</strong>, payable upon arrival. This fee covers the NSS sessions, lunches at IMO, the Reykjanes Peninsula field trip, and the social dinner.
         </p>
        
         
         </p>
 
+
+
+
         <div class="divider"></div>
 
-        <h2>Program</h2>
+        <h2 class="section-title" style="color: #1f3a8a;font-size: 26px;">Program</h2>
         <p class="muted">The seminar program will be announced on <strong>15 May 2026</strong>.</p>
 
+
+
         <div class="divider"></div>
 
-        <h2>Field Excursion · June 11th</h2>
+        <h2 class="section-title" style="color: #1f3a8a;font-size: 26px;">Field Excursion · June 11th </h2>
+
         <p class="muted">We will head out to the Reykjanes Peninsula to explore the recent volcanic fields! As the itinerary involves a short hike and time outdoors, we kindly ask participants to dress warmly and wear sturdy shoes for the Icelandic weather. </p>
 
-      
+
+       <div class="field-img-container" style="margin-top: 20px;">
+
+      <div class="field-img-container" style="margin-top:20px; height:800px;">
+  <img src="images/lava.jpeg"
+       style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+</div>
+
+
+       <p class="muted" style="margin-top: 12px; font-style: italic; text-align: center;font-size: 18px;">
+    Lava from a volcanic fissure near Grindavík (Photograph from the State police/Getty Images).
+
+       </p>
+      </div>
 
       </main>
 
@@ -338,26 +339,29 @@
        
 
         <div class="kvs">
-          <div class="kv">
+            <div class="kv">
             <div class="k">Important Dates</div>
             <div class="v">
               Nordic DAS Workshop: <strong>8 June 2026 </strong><br/>
               NSS Seminar: <strong>9–10 June 2026</strong><br/>
-              Field Excursion: <strong>11 June 2026
+              Field Excursion: <strong>11 June 2026</strong>
             </div>
           </div>
 
-          <div class="kv">
-            <div class="k">Registration deadline</div>
-            <div class="v">10 April 2026</strong></div>
-          </div>
+<div class="kv">
+  <div class="k">Registration deadline</div>
+  <div class="v" style="color: red; font-weight: bold; font-size: 1.1rem;">
+    10 April 2026
+  </div>
+</div>
+
 
 <div class="kv">
   <div class="k">Venue</div>
 
   <div class="v">
-    <strong>Icelandic Met Office</strong><br/>
-    Meeting Room: Underheimar<br/>
+    <strong>Icelandic Meteorological Office</strong><br/>
+    Meeting Room: Undirheimar, B7<br/>
    Bústaðavegur 7, 105 Reykjavík
   </div>
 
@@ -382,10 +386,29 @@
   </div>
 </div>
 
+<div class="straeto-img" style="margin-top: 20px;">
+  <img src="images/IMO-straeto.jpeg" alt="bus stops" style="width: 100%; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.12);">
+  
+  <p class="small" style="margin-top: 8px; font-style: italic; text-align: center; color: white; font-size: 18px;">
+    Accesible via bus numbers <strong>18</strong> or <strong>13</strong>.
+  </p>
+</div>
+
+
+<div class="b7-img" style="margin-top: 20px;">
+  <img src="images/IMO_B7_photo.jpg" alt="IMO location" style="width: 100%; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.12);">
+  
+  <p class="small" style="margin-top: 8px; font-style: italic; text-align: center; color: white; font-size: 18px;">
+    Icelandic Met Office, B7 building.
+  </p>
+</div>
+
+
+
 
     <div class="kv">
             <div class="k">Contact</div>
-	      <div class="v"><strong>For any questions, please contact:</strong></div>
+	      <div class="v">For any questions, please contact:</div>
               <a href="mailto:kristin.jonsdottir@vedur.is">kristin.jonsdottir@vedur.is</a><br>
        	      <a href="mailto:yesim@vedur.is">yesim@vedur.is</a><br>
                    <a href="mailto:rikey@vedur.is">rikey@vedur.is</a>
@@ -402,10 +425,11 @@
     <!-- SAĞ: METİN -->
     <div class="accommodation-text">
         <h1>NordForsk NORDIC DAS Project Workshop</h1>
-        <p style="color: #000000; font-size: 1.05rem; line-height: 1.6;">
+
+        <p style="color: #000000; font-size: 22px; line-height: 1.6;">
         We are pleased to host a workshop</strong> on 
         <strong>8 June 2026</strong> focused on <strong>Distributed Acoustic Sensing (DAS)</strong>. 
-        Supported by the Nordforsk <strong>NORDIC DAS</strong> project, this event explores 
+        Supported by the <strong>Nordforsk NORDIC DAS</strong> project, this event explores 
         <em>"Fiber-optics for Natural Hazard Monitoring"</em> and is held in conjunction with the 
         57<sup>th</sup> Nordic Seismology Seminar.<br/>
         <br/> <strong>Attendance Note:</strong> Please note that this workshop is reserved for the NordForsk project partners and invited guests. This session is focused on internal capacity building and discussions, therefore attendance is limited to ensure a productive working environment. We look forward to sharing key takeaways and updates with our wider community as the project evolves.
@@ -425,38 +449,13 @@
 
 
 
-
-
-<!-- ⭐ ACCOMMODATION ayrı kutu -->
-<div class="card" style="margin-top:18px;">
-
-  <div class="accommodation-box">
-
-    <!-- SOL: FOTOĞRAF -->
-    <div class="accommodation-img">
-      <img src="images/reyk.jpg" alt="Reykjavík">
-    </div>
-
-    <!-- SAĞ: METİN -->
-    <div class="accommodation-text">
-      <h2>Accommodation</h2>
-
-      <p class="muted">
-        Participants are responsible for arranging their own accommodation. For special hotel rates, please check the list of discounts provided in our earlier seminar invitation sent in October, 2025.
-
-        
-      </p>
-    </div>
-
-
-
   </div>
 
 </div>
 
 
     <div class="footer">
-      <div><strong>Nordic Seismology Seminar 2026</strong></div>
+      <div style="font-size: 22px;"><strong>Nordic Seismology Seminar 2026</strong></div>
       <div class="muted">Last updated: <span id="lastUpdated"></span></div>
     </div>
 
